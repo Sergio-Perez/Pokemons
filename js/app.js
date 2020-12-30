@@ -25,7 +25,7 @@ function renderImage() {
 
 function numeros(number, numero) {
     let enumeramo = document.getElementById('numero');
-    enumeramo.innerHTML = `<h3 class="center">${number} of 893 <h3> <p>Velocidad de avance: ${numero}`;
+    enumeramo.innerHTML = `<h3 class="center">${number}  de 893 <h3> <p>Velocidad de avance: ${numero}`;
 
 
 
@@ -34,7 +34,6 @@ function numeros(number, numero) {
 
 
 function mensaje() {
-    console.log(comprobar);
     numeros(count, comprobar);
     if (comprobar >= 1) {
 

@@ -17,6 +17,25 @@ body {
     margin: 20px;
 }
 
+.contener {
+    display: flex;
+    padding: 20px;
+}
+
+.botones {
+    margin: 0 15px
+}
+
+.botones img {
+    height: 40px;
+    margin: 0.5px;
+}
+
+.botones img:hover {
+    height: 50px;
+    margin: 0.5px;
+}
+
 #pokemon {
     width: 300px;
     height: 300px;

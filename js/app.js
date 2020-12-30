@@ -1,116 +1,108 @@
-//$(document).ready(function() {
-//   "use strict";let datos = new Object()
-let lines = [];
 let count = 1;
-let datos = {};
 
-
-/*
-$.ajax({
-    async: true,
-    type: "GET",
-    //url: "../data/pokemon.csv",
-    url: `https://pokeapi.co/api/v2/pokemon-form/${count}`,
-    dataType: "text",
-
-    success: function(data) {
-        processData(data);
-    }
-
-});
-
-function processData(allText) {
-
-    var record_num = 12; // or however many elements there are in each row
-    var allTextLines = allText.split(/\r\n|\n/);
-    var entries = allTextLines[0].split(',');
-
-
-    var headings = entries.splice(0, record_num);
-    while (entries.length > 0) {
-        var tarr = [];
-        for (var j = 0; j < record_num; j++) {
-            tarr.push(headings[j] + ":" + entries.shift());
-        }
-        lines.push(tarr);
-    }
-    table = allText.split("\n").map(line => line.split(",")),
-        datos = Object.create(
-            table
-        ),
-
-
-        //categories = lines[0].slice(1).map(e => e * 1),
-        data = table.slice(1).map(a => ({
-            "data": a[0],
-            "nombre": a.slice(1).slice(1).map(e => e * 1)
-
-        }));
-
-
-
-
-
-    //console.log(categories);
-    let nombrePokemonContainer = document.getElementById('nombrePokemon');
-    nombrePokemonContainer.innerHTML = `  <h2> <big>${table[0][10]}`;
-    //console.log(table[0][10])
-}*/
-
-
-
-
-
-
-
-//Calling define with module ID, dependency array, and factory function
-
+var intervalo;
+var comprobar = 0;
 
 
 async function getUser(numero) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${numero}/`);
     let data = await response.json()
     let nombrePokemonContainer = document.getElementById('nombrePokemon');
-    nombrePokemonContainer.innerHTML = ` <h2 class="nombre"> Nombre: <span>${data.name}</span></h2>  `;
+    nombrePokemonContainer.innerHTML = ` <h2 class="nombre"> Nombre: <span>${data.name}</span></h2> `;
 
-    return data;
+
 }
 
 
 function renderImage() {
     let pokemonContainer = document.getElementById('pokemon');
 
-    pokemonContainer.innerHTML = `<img id="poke" src="https://tinyurl.com/ironhack-pokemons/${count}.svg" alt="Pokemon's image">           `;
-
-
-
+    pokemonContainer.innerHTML = `<img id="poke" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${count}.png" alt="Pokemon's image">           `;
 
 
 
 };
+
+function numeros(number, numero) {
+    let enumeramo = document.getElementById('numero');
+    enumeramo.innerHTML = `<h3 class="center">${number} of 893 <h3> <p>Velocidad de avance: ${numero}`;
+
+
+
+}
+
+
+
+function mensaje() {
+    console.log(comprobar);
+    numeros(count, comprobar);
+    if (comprobar >= 1) {
+
+        renderImage();
+        getUser(count);
+
+        count++;
+
+
+    }
+
+}
+
+
+function arrancar() {
+    let boton = document.getElementById("boton");
+    boton.innerHTML = `<button class="botones" type="button" value="Pase solo"  "> <img src="https://image.flaticon.com/icons/png/512/3/3884.png"></button>`;
+}
+
+
+
+function parar() {
+    let boton_parar = document.getElementById("boton-parar");
+
+    boton_parar.innerHTML = `<button class="botones" type="button" value="Parar"  "> <img src="https://static.motor.es/fotos-diccionario/2020/07/senal-stop_1595761816.jpg"></button>`;
+
+}
+
 
 //https://pokeapi.co/api/v2/pokemon-form/${count}/
 let prev = document.getElementById("previous");
 let next = document.getElementById("next");
 
+let boton_paramos = document.getElementById("boton-parar");
+let boton_arrancamos = document.getElementById("boton");
 
+boton_arrancamos.onclick = function() {
+    intervalo = setInterval(mensaje, 3000);
+    comprobar++;
+};
+
+boton_paramos.onclick = function() {
+    for (var i = 1; i < intervalo; i++)
+        window.clearInterval(i);
+    clearInterval(mensaje);
+    comprobar--;
+};
 prev.onclick = function() {
     if (count > 1) {
         count = count - 1;
         renderImage();
         getUser(count);
+        numeros(count, comprobar);
     }
 };
 
 next.onclick = function() {
-    if (count < 649) {
+    if (count < 894) {
         count = count + 1;
         renderImage();
         getUser(count);
+        numeros(count, comprobar);
 
     }
 };
 //});
 getUser(count);
-
+numeros(count, comprobar);
 renderImage();
+arrancar()
+parar()

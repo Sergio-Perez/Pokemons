@@ -71,3 +71,13 @@ body {
     color: rgb(14, 14, 131);
     font-family: 'Cutive Mono', monospace;
 }
+
+.music {
+    color: rgb(14, 14, 131);
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+button:active {
+    background: yellowgreen;
+}

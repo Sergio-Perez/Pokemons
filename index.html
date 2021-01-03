@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemons</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -30,6 +32,13 @@
             <img class="button" id="next" src="http://tinyurl.com/next-arrow" alt="Flecha Derecha">
         </div>
 
+        <audio id="demo" src="data/pokemon.mp3"></audio>
+        <div>
+            <button class="music" onclick="document.getElementById('demo').play()"><i class="fas fa-play"></i></button>
+            <button class="music" onclick="document.getElementById('demo').pause()"><i class="fas fa-stop"></i></button>
+            <button class="music" onclick="document.getElementById('demo').volume+=0.1"><i class="fas fa-volume-up"></i></button>
+            <button class="music" onclick="document.getElementById('demo').volume-=0.1"><i class="fas fa-volume-down"></i></button>
+        </div>
         <div class="contener">
             <img class="botones " src="http://www.clker.com/cliparts/B/K/L/P/e/5/play-button-md.png" id="boton" alt="">
             <div id="numero"> </div>

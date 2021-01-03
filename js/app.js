@@ -8,7 +8,7 @@ async function getUser(numero) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${numero}/`);
     let data = await response.json()
     let nombrePokemonContainer = document.getElementById('nombrePokemon');
-    nombrePokemonContainer.innerHTML = ` <h2 class="nombre"> Nombre: <span>${data.name}</span></h2> `;
+    nombrePokemonContainer.innerHTML = ` <h2 class="nombre avance"> Nombre: <span>${data.name}</span></h2> `;
 
 
 }
@@ -25,7 +25,7 @@ function renderImage() {
 
 function numeros(number, numero) {
     let enumeramo = document.getElementById('numero');
-    enumeramo.innerHTML = `<h3 class="center">${number}  de 893 <h3> <p>Velocidad de avance: ${numero}`;
+    enumeramo.innerHTML = `<h3 class="center contador">${number}  de 893 <h3> <p class="avance" >Velocidad de avance: ${numero}</p>`;
 
 
 
@@ -48,22 +48,7 @@ function mensaje() {
 }
 
 
-function arrancar() {
-    let boton = document.getElementById("boton");
-    boton.innerHTML = `<button class="botones" type="button" value="Pase solo"  "> <img src="https://image.flaticon.com/icons/png/512/3/3884.png"></button>`;
-}
 
-
-
-function parar() {
-    let boton_parar = document.getElementById("boton-parar");
-
-    boton_parar.innerHTML = `<button class="botones" type="button" value="Parar"  "> <img src="https://static.motor.es/fotos-diccionario/2020/07/senal-stop_1595761816.jpg"></button>`;
-
-}
-
-
-//https://pokeapi.co/api/v2/pokemon-form/${count}/
 let prev = document.getElementById("previous");
 let next = document.getElementById("next");
 
@@ -103,5 +88,3 @@ next.onclick = function() {
 getUser(count);
 numeros(count, comprobar);
 renderImage();
-arrancar()
-parar()

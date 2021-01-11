@@ -8,7 +8,7 @@ async function getUser(numero) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${numero}/`);
     let data = await response.json()
     let nombrePokemonContainer = document.getElementById('nombrePokemon');
-    nombrePokemonContainer.innerHTML = ` <h2 class="nombre avance"> Nombre: <span>${data.name}</span></h2> `;
+    nombrePokemonContainer.innerHTML = ` <h2 class="nombre "> Nombre: <span>${data.name}</span></h2> `;
 
 
 }

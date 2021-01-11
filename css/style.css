@@ -27,7 +27,7 @@ body {
 }
 
 .botones {
-    width: 55px;
+    height: 55px;
     margin: 20px;
 }
 
@@ -55,6 +55,11 @@ body {
     height: 300px;
 }
 
+.nombre {
+    font-size: 20px;
+    color: rgb(14, 14, 131);
+}
+
 .nombre span {
     color: gold;
     text-transform: uppercase;
@@ -70,6 +75,14 @@ body {
 .avance {
     color: rgb(14, 14, 131);
     font-family: 'Cutive Mono', monospace;
+    font-size: 15px;
+}
+
+@media (min-width: 568px) {
+    .avance {
+        font-size: 1.5rem;
+        ;
+    }
 }
 
 .music {
